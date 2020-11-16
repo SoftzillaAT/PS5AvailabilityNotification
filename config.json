@@ -1,0 +1,4 @@
+[
+  {"url":"https://www.google.at", "xpath":"something", "pattern":"contains"}, 
+  {"url":"https://www.google.at2", "xpath":"something2", "pattern":"contains"}
+]
