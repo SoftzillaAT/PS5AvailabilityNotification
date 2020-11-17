@@ -1,4 +1,18 @@
 [
-  {"url":"https://www.google.at", "xpath":"something", "pattern":"contains"}, 
-  {"url":"https://www.google.at2", "xpath":"something2", "pattern":"contains"}
+  {
+    "url":"https://www.mediamarkt.at/de/product/_sony-playstation%C2%AE5-1797339.html?ref=269979&affmn=0&affmt=0&rbtc=aff%7ccon%7c269979%7c%7cp%7caffiliate_mm-ka-affilinet-nat_%7c&awc=13996_1605641147_67dc523fac7e73d344e3eb6ab8d5bbc3&dclid=COGUlLKniu0CFUqadwod4nUJ9A", 
+    "pattern":">Dieser Artikel ist aktuell nicht verfügbar."
+  },
+  {
+    "url":"https://www.libro.at/gaming/ps5.html",
+    "pattern":"Artikel 1 bis 12 von insgesamt 16"
+  },
+  {
+    "url":"https://www.electronic4you.at/ps5",
+    "pattern": "Zur Veröffentlichung werden keine Konsolen zum Verkauf in den Geschäften verfügbar sein."
+  },
+  {
+    "file": "test.html",
+    "url": "https://raw.githubusercontent.com/SoftzillaAT/vim_profile/main/README.md"
+  }
 ]
