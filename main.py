@@ -7,7 +7,7 @@ from urllib.parse import unquote
 from urllib.parse import urlparse
 
 def loadConfig():
-    with open('config.json') as json_file:
+    with open(os.getcwd() + '/config.json') as json_file:
         return json.load(json_file)
 
 def telegram_bot_sendtext(bot_message):
@@ -15,10 +15,10 @@ def telegram_bot_sendtext(bot_message):
     bot_token = ''
     bot_chatID = ''
 
-    with open('token.txt','r') as f:
+    with open(os.getcwd() + '/token.txt','r') as f:
         bot_token = f.read().strip()
     
-    with open('user.txt','r') as f:
+    with open(os.getcwd() + '/user.txt','r') as f:
         bot_chatID = f.read().strip()
    
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + unquote(bot_message)
@@ -35,7 +35,7 @@ def sendNotification(url):
 
 
 def writeFile(fileName, text):
-    f = open(fileName, "w")
+    f = open(os.getcwd() + "/" + fileName, "w")
     f.write(text)
     f.close()
 
@@ -55,7 +55,7 @@ def checkFileChange(url, file_name):
     if (not os.path.isfile(file_name)):
         writeFile(file_name, page)
     else:
-        my_file = open(file_name, "r")
+        my_file = open(os.getcwd() + "/" + file_name, "r")
         file_content = my_file.read()
         if (page.strip() == file_content.strip()):
             print("Same file")
