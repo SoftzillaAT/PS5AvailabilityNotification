@@ -3,15 +3,35 @@ import requests
 import os.path
 from os import path
 import json
+from urllib.parse import unquote
+from urllib.parse import urlparse
 
 def loadConfig():
     with open('config.json') as json_file:
         return json.load(json_file)
 
+def telegram_bot_sendtext(bot_message):
+
+    bot_token = ''
+    bot_chatID = ''
+
+    with open('token.txt','r') as f:
+        bot_token = f.read().strip()
+    
+    with open('user.txt','r') as f:
+        bot_chatID = f.read().strip()
+   
+    send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + unquote(bot_message)
+    response = requests.get(send_text)
+    return response.json()
+
+
 def sendNotification(url):
     print("CHANGE IN URL:  %s" % (url))
     #file = "sound.mp3"
-    #os.system("afplay " + file)
+    #os.system("afplay " + filei)
+    domain = urlparse(url).netloc
+    print(telegram_bot_sendtext("CHANGE IN URL " + domain))
 
 
 def writeFile(fileName, text):
