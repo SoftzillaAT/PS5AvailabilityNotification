@@ -20,7 +20,7 @@ def writeFile(fileName, text):
     f.close()
 
 def checkPattern(url, pattern):
-    req = requests.get(url)
+    req = requests.get(url, verify=False)
     page = req.text
     #writeFile("test.html", page)
     if (page.find(pattern) < 0):
@@ -29,7 +29,7 @@ def checkPattern(url, pattern):
         print("Pattern found")
 
 def checkFileChange(url, file_name):
-    req = requests.get(url)
+    req = requests.get(url, verify=False)
     page = req.text
 
     if (not os.path.isfile(file_name)):
