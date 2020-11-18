@@ -14,5 +14,22 @@
   {
     "file": "test.html",
     "url": "https://raw.githubusercontent.com/SoftzillaAT/vim_profile/main/README.md"
+  },
+  {
+    "pattern": "synology NAS",
+    "url": "https://raw.githubusercontent.com/SoftzillaAT/WebNotificationManager/main/README.md"
+  },
+  {
+    "pattern":"Derzeit nicht verfügbar.",
+    "url":"https://www.amazon.de/gp/product/B08H93ZRK9?pf_rd_r=YV9H8S3080329XBAPS54&pf_rd_p=e755845d-0f2e-4656-a84e-64028aed273c",
+    "cookies":
+    {
+      "session-id-time":"2082754801l", 
+      "csm-hit":"tb:s-BAHDNH8F40NF01GPEKSV|1605731690907&t:1605731693705&adb:adblk_no",
+      "session-token":"xMu8VJDA8+htdxWjKDC7T7NeS1D04lK/KK8NOnfSacQ8/cdKFFIvofkossh6ItL7T767ZhZxXOpgJ5xPiMSbqeHyz6as/zIASZQsJzGjBJ3j3Z86AAKTUszxHmDWlP7BXYakVQuNYLhiT31AuNJx/93wdS9r2wleSgcfWm2m/PdQ7Pud8iI4TzNo9nqN/Immgpx8WmjKx42ZblOEWO9+fhy8NDnJ3fYxV3Q1Hasu2dorOjuVcK4NS/znQEZzNy6M", 
+      "ubid-acbde":"260-3301378-7545422", 
+      "i18n-prefs":"EUR", 
+      "session-id":"257-0494665-8913932" 
+    }
   }
 ]

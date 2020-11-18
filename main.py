@@ -6,6 +6,9 @@ import json
 from urllib.parse import unquote
 from urllib.parse import urlparse
 
+
+headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"}
+
 def loadConfig():
     with open('config.json') as json_file:
         return json.load(json_file)
@@ -39,8 +42,8 @@ def writeFile(fileName, text):
     f.write(text)
     f.close()
 
-def checkPattern(url, pattern):
-    req = requests.get(url, verify=False)
+def checkPattern(url, pattern, cookies=[]):
+    req = requests.get(url, verify=False, cookies=cookies, headers=headers)
     page = req.text
     #writeFile("test.html", page)
     if (page.find(pattern) < 0):
@@ -48,8 +51,8 @@ def checkPattern(url, pattern):
     else:
         print("Pattern found")
 
-def checkFileChange(url, file_name):
-    req = requests.get(url, verify=False)
+def checkFileChange(url, file_name, cookies=[]):
+    req = requests.get(url, verify=False, cookies=cookies, headers=headers)
     page = req.text
 
     if (not os.path.isfile(file_name)):
@@ -69,10 +72,14 @@ def main():
 
     for website in a:
         print(website)
+        cookies = []
+        if ("cookies" in website):
+            cookies = website['cookies']
+
         if ("pattern" in website):
-            checkPattern(website['url'], website['pattern'])
+            checkPattern(website['url'], website['pattern'], cookies)
         else:
-            checkFileChange(website['url'], website['file'])
+            checkFileChange(website['url'], website['file'], cookies)
 
 if __name__ == "__main__":
     main()
