@@ -8,8 +8,11 @@ def loadConfig():
     with open('config.json') as json_file:
         return json.load(json_file)
 
-def sendNotification(url, pattern = ""):
+def sendNotification(url):
     print("CHANGE IN URL:  %s" % (url))
+    #file = "sound.mp3"
+    #os.system("afplay " + file)
+
 
 def writeFile(fileName, text):
     f = open(fileName, "w")
@@ -21,7 +24,7 @@ def checkPattern(url, pattern):
     page = req.text
     #writeFile("test.html", page)
     if (page.find(pattern) < 0):
-        print("Pattern not found")
+        sendNotification(url)
     else:
         print("Pattern found")
 
